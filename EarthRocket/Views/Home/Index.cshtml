@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<head>
+    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+
+</head>
+
+<body>
+    <h2>Planet Earth</h2>
+    <a-scene>
+        <a-entity>
+            <a-sphere src="/images/earth.jpg"
+                      position="0 1.25 -5"
+                      radius="1.25"
+                      rotation="0 .35 0">
+                <a-animation attribute="rotation" from="0 0 0" to="0 360 0" easing="linear" dur="1000" repeat="indefinite"></a-animation>
+
+
+                @*<a-sphere color="gray"
+                          position="0 0 -5"
+                          radius="0.35"
+                          rotation="0 0 0">
+                    <a-animation attribute="rotation" from="0 0 0" to="0 360 0" easing="linear" dur="1000" repeat="indefinite"></a-animation>
+
+                </a-sphere>*@
+
+                <a-sphere id="startPoint"
+                          color="red"
+                          position="@Model["x"] @Model["y"] @Model["z"]"
+                          radius="0.035"
+                          rotation="0 0 0">
+
+                </a-sphere>
+                <a-animation attribute="rotation"
+                             dur="5000"
+                             fill="forwards"
+                             easing="linear"
+                             to="0 360 0"
+                             repeat="indefinite"></a-animation>
+                <a-sky color="#000000"></a-sky>
+</a-entity>
+    </a-scene>
+</body>
